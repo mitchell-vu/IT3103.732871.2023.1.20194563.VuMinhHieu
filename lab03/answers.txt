@@ -1,0 +1,17 @@
+Student Name: Vu Minh Hieu
+Student ID: 20194563
+
+LAB 03: BASIC OBJECT-ORIENTED TECHNIQUES
+ANSWER SHEET
+
+-------
+Q:  Is Java a Pass by Value or a Pass by Reference programming language?
+A:  
+
+-------
+Q:  After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
+A:
+
+-------
+Q:  After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+A:
