@@ -4,7 +4,7 @@
  * @since November 2023
  */
 
-package aims;
+package hust.soict.dsai.lab02.AimsProject.src.aims;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;

@@ -1,4 +1,4 @@
-package lab01.Exercises;
+package hust.soict.dsai.lab01.Exercises;
 
 import java.util.Arrays;
 import java.util.Scanner;

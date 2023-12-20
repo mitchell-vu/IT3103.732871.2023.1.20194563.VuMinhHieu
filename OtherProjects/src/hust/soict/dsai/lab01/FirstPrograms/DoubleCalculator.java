@@ -1,4 +1,4 @@
-package lab01.FirstPrograms;
+package hust.soict.dsai.lab01.FirstPrograms;
 
 import java.util.Scanner;
 

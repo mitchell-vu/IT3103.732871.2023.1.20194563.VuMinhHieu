@@ -4,7 +4,7 @@
  * @since November 2023
  */
 
-package aims;
+package hust.soict.dsai.lab02.AimsProject.src.aims;
 
 public class Aims {
     public static void main(String[] args) {
