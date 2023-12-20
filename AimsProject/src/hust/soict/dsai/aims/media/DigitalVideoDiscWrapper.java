@@ -4,7 +4,7 @@
  * @since December 2023
  */
 
-package hust.soict.dsai.aims.disc;
+package hust.soict.dsai.aims.media;
 
 public class DigitalVideoDiscWrapper {
     private DigitalVideoDisc dvd;

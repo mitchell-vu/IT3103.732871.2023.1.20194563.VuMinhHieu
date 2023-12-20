@@ -6,13 +6,13 @@
 
 package hust.soict.dsai.test.disc;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
-import hust.soict.dsai.aims.disc.DigitalVideoDiscWrapper;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDiscWrapper;
 
 public class TestPassingParameter {
     public static void main(String[] args) {
-        DigitalVideoDiscWrapper jungleDVDWrapper = new DigitalVideoDiscWrapper(new DigitalVideoDisc("Jungle"));
-        DigitalVideoDiscWrapper cinderellaDVDWrapper = new DigitalVideoDiscWrapper(new DigitalVideoDisc("Cinderella"));
+        DigitalVideoDiscWrapper jungleDVDWrapper = new DigitalVideoDiscWrapper(new DigitalVideoDisc("Jungle", 90, "John Musker"));
+        DigitalVideoDiscWrapper cinderellaDVDWrapper = new DigitalVideoDiscWrapper(new DigitalVideoDisc("Cinderella", 90, "John Musker"));
 
         swap(jungleDVDWrapper, cinderellaDVDWrapper);
         System.out.println("jungle dvd title: " + jungleDVDWrapper.getDVD().getTitle());

@@ -6,43 +6,44 @@
 
 package hust.soict.dsai.aims.store;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
+
+import java.util.ArrayList;
 
 public class Store {
     private static final int DEFAULT_CAPACITY = 20;
-    private final DigitalVideoDisc[] itemsInStore;
-    private int itemCount;
+
+    private ArrayList<Media> itemsInStore;
+    private int capacity;
 
     public Store() {
-        this.itemsInStore = new DigitalVideoDisc[DEFAULT_CAPACITY];
+        this.itemsInStore = new ArrayList<>(DEFAULT_CAPACITY);
+        this.capacity = DEFAULT_CAPACITY;
     }
 
     public Store(int capacity) {
-        this.itemsInStore = new DigitalVideoDisc[capacity];
+        this.itemsInStore = new ArrayList<>(capacity);
+        this.capacity = capacity > 0 ? capacity : DEFAULT_CAPACITY;
     }
 
-    public void addDVD(DigitalVideoDisc... dvds) {
-        for (DigitalVideoDisc dvd : dvds) {
-            if (itemCount < itemsInStore.length) {
-                itemsInStore[itemCount] = dvd;
-                itemCount++;
-                System.out.println("DVD added to the store: " + dvd.getTitle());
+    public void addMedia(Media... medias) {
+        for (Media media : medias) {
+            if (itemsInStore.size() < capacity) {
+                itemsInStore.add(media);
+                System.out.println("Media added to the store: " + media.getTitle());
             } else {
-                System.out.println("Store is full. Cannot add more DVDs.");
+                System.out.println("Store is full. Cannot add more medias.");
             }
         }
     }
 
-    public void removeDVD(String... titles) {
+    public void removeMedia(String... titles) {
         for (String title : titles) {
-            for (int i = 0; i < itemCount; i++) {
-                if (itemsInStore[i].getTitle().equals(title)) {
-                    System.out.println("DVD removed from the store: " + title);
-//                    Move the last item to the position of the removed item
-                    itemsInStore[i] = itemsInStore[itemCount - 1];
-//                    Clear the last position
-                    itemsInStore[itemCount - 1] = null;
-                    itemCount--;
+            for (Media item : itemsInStore) {
+                if (item.getTitle().equals(title)) {
+                    System.out.println("Media removed from the store: " + title);
+                    itemsInStore.remove(item);
                     break;
                 }
             }
@@ -52,8 +53,8 @@ public class Store {
     public void print() {
         System.out.println("***********************STORE***********************");
         System.out.println("Items in the store:");
-        for (int i = 0; i < itemCount; i++) {
-            System.out.printf("%d. %s\n", i + 1, itemsInStore[i].toString());
+        for (int i = 0; i < itemsInStore.size(); i++) {
+            System.out.printf("%d. %s\n", i + 1, itemsInStore.get(i).toString());
         }
         System.out.println("*****************************************************");
     }
