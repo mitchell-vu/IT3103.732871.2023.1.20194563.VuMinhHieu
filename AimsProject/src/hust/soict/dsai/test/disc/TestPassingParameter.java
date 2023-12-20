@@ -4,7 +4,10 @@
  * @since December 2023
  */
 
-package aims;
+package hust.soict.dsai.test.disc;
+
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.disc.DigitalVideoDiscWrapper;
 
 public class TestPassingParameter {
     public static void main(String[] args) {

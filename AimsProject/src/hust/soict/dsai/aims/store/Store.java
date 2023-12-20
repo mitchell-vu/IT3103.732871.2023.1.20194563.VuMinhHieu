@@ -4,7 +4,9 @@
  * @since November 2023
  */
 
-package aims;
+package hust.soict.dsai.aims.store;
+
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Store {
     private static final int DEFAULT_CAPACITY = 20;

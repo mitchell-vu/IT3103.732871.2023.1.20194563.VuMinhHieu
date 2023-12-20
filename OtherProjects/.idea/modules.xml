@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/OtherProjects.iml" filepath="$PROJECT_DIR$/OtherProjects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hust/hust.soict.dsai.iml" filepath="$PROJECT_DIR$/hust/hust.soict.dsai.iml" />
+    </modules>
+  </component>
+</project>
