@@ -7,13 +7,13 @@
 package aims;
 
 public class DigitalVideoDisc {
+    private static int nbDigitalVideoDiscs = 0;
     private String title;
     private String category;
     private String director;
     private int length;
     private float cost;
-    private static int nbDigitalVideoDiscs = 0;
-    private int id;
+    private final int id;
 
     public DigitalVideoDisc(String title) {
         super();
@@ -25,6 +25,7 @@ public class DigitalVideoDisc {
         this.title = title;
         this.category = category;
         this.cost = cost;
+        this.id = ++nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDisc(String title, String category, String director, float cost) {
@@ -32,6 +33,7 @@ public class DigitalVideoDisc {
         this.category = category;
         this.director = director;
         this.cost = cost;
+        this.id = ++nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
@@ -40,6 +42,7 @@ public class DigitalVideoDisc {
         this.director = director;
         this.length = length;
         this.cost = cost;
+        this.id = ++nbDigitalVideoDiscs;
     }
 
     public int getId() {
@@ -48,6 +51,10 @@ public class DigitalVideoDisc {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getCategory() {
@@ -66,7 +73,13 @@ public class DigitalVideoDisc {
         return cost;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    @Override
+    public String toString() {
+        return "DVD [" + this.getId() + "]"
+                + " - " + this.getTitle()
+                + " - " + this.getCategory()
+                + " - " + this.getDirector()
+                + " - " + this.getLength()
+                + " - " + this.getCost() + "$";
     }
 }
