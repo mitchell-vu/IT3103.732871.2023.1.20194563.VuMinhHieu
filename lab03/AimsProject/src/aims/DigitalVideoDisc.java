@@ -82,4 +82,17 @@ public class DigitalVideoDisc {
                 + " - " + this.getLength()
                 + " - " + this.getCost() + "$";
     }
+
+//    Matching rules in Lab 02
+//    Comparison is case-insensitive
+    public boolean isMatch(String title) {
+        String[] words = title.split(" ");
+
+        for (String word : words) {
+            if (!this.title.toLowerCase().contains(word.toLowerCase()))
+                return false;
+        }
+
+        return true;
+    }
 }

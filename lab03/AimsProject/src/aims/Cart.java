@@ -12,7 +12,7 @@ public class Cart {
     private int quantityOrdered = 0;
 
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
-        // Check the cart is already full or not
+//        Check the cart is already full or not
         if (quantityOrdered >= MAX_NUMBERS_ORDERED) {
             System.out.println("The cart is full.");
             return;
@@ -58,5 +58,27 @@ public class Cart {
         }
         System.out.printf("Total cost: %.2f\n", totalCost());
         System.out.println("***************************************************");
+    }
+
+    public void search(int id) {
+        for (int i = 0; i < quantityOrdered; i++) {
+            if (itemsOrdered[i].getId() == id) {
+                System.out.println("Found the DVD:");
+                System.out.println(itemsOrdered[i].toString());
+                return;
+            }
+        }
+        System.out.println("DVD not found!");
+    }
+
+    public void search(String title) {
+        for (int i = 0; i < quantityOrdered; i++) {
+            if (itemsOrdered[i].isMatch(title)) {
+                System.out.println("Found the DVD:");
+                System.out.println(itemsOrdered[i].toString());
+                return;
+            }
+        }
+        System.out.println("DVD not found!");
     }
 }
