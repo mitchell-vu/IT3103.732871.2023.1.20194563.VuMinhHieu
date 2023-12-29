@@ -32,11 +32,10 @@ public class CompactDisc extends Disc implements Playable {
     }
 
     public void addTrack(Track track) {
-        for (Track value : tracks)
-            if (value.equals(track)) {
-                System.out.println("Duplicated track.");
-                return;
-            }
+        if (tracks.contains(track)) {
+            System.out.println("Track already exists!");
+            return;
+        }
 
         tracks.add(track);
         System.out.println("Add track successful.");
@@ -64,9 +63,9 @@ public class CompactDisc extends Disc implements Playable {
 
     @Override
     public void play() {
-        System.out.println("Title: " + getTitle());
-        System.out.println("Artist : " + getArtist());
-        System.out.println("Length : " + getLength());
+        System.out.println("DVD Title : " + this.getTitle());
+        System.out.println("Artist    : " + this.getArtist());
+        System.out.println("Length    : " + this.getLength());
 
         if (tracks.isEmpty()) {
             System.out.println("No tracks found.");
@@ -74,5 +73,14 @@ public class CompactDisc extends Disc implements Playable {
             for (Track track : tracks)
                 track.play();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "CD [" + this.getId() + "]"
+                + " - " + this.getTitle()
+                + " - " + this.getCategory()
+                + " - " + this.getArtist()
+                + " - " + this.getCost() + "$";
     }
 }

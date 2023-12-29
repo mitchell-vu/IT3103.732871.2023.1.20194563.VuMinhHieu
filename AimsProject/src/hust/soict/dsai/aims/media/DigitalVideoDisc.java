@@ -42,8 +42,9 @@ public class DigitalVideoDisc extends Disc implements Playable {
         String[] words = title.split(" ");
 
         for (String word : words) {
-//            Matching rules in Lab 02. Comparison is case-insensitive
-            if (!this.getTitle().toLowerCase().contains(word.toLowerCase())) return false;
+            // Matching rules in Lab 02. Comparison is case-insensitive
+            if (!this.getTitle().toLowerCase().contains(word.toLowerCase()))
+                return false;
         }
 
         return true;
@@ -51,7 +52,7 @@ public class DigitalVideoDisc extends Disc implements Playable {
 
     @Override
     public void play() {
-        System.out.println("Playing DVD: " + this.getTitle());
-        System.out.println("DVD length: " + this.getLength());
+        System.out.println("DVD Title : " + this.getTitle());
+        System.out.println("Length    : " + this.getLength());
     }
 }
