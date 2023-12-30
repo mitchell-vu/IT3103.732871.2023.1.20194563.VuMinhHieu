@@ -10,38 +10,41 @@ import hust.soict.dsai.aims.media.Media;
 
 import java.util.ArrayList;
 
+import javax.naming.LimitExceededException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Store {
     private static final int DEFAULT_CAPACITY = 20;
 
-    private ArrayList<Media> itemsInStore;
+    private final ObservableList<Media> itemsInStore = FXCollections.observableArrayList();
     private int capacity;
 
     public Store() {
-        this.itemsInStore = new ArrayList<>(DEFAULT_CAPACITY);
         this.capacity = DEFAULT_CAPACITY;
     }
 
     public Store(int capacity) {
-        this.itemsInStore = new ArrayList<>(capacity);
         this.capacity = capacity > 0 ? capacity : DEFAULT_CAPACITY;
     }
 
-    public ArrayList<Media> getItemsInStore() {
+    public ObservableList<Media> getItemsInStore() {
         return itemsInStore;
     }
 
-    public void addMedia(Media... medias) {
+    public void addMedia(Media... medias) throws Exception {
         for (Media media : medias) {
             if (itemsInStore.size() < capacity) {
                 if (itemsInStore.contains(media)) {
                     System.out.printf("The media %s already exist\n", media.getTitle());
-                    continue;
+                    throw new Exception("Media already exist");
                 }
 
                 itemsInStore.add(media);
                 System.out.println("Media added to the store: " + media.getTitle());
             } else {
                 System.out.println("Store is full. Cannot add more medias.");
+                throw new LimitExceededException("Store is full");
             }
         }
     }

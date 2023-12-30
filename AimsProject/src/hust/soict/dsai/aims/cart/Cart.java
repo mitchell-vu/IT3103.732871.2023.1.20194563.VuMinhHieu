@@ -7,15 +7,44 @@
 package hust.soict.dsai.aims.cart;
 
 import hust.soict.dsai.aims.media.Media;
+import javafx.beans.property.FloatProperty;
+import javafx.beans.property.SimpleFloatProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private final ArrayList<Media> itemsOrdered = new ArrayList<>();
+    private final ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+    private final FloatProperty totalCost = new SimpleFloatProperty(0);
 
-    public ArrayList<Media> getItemsOrdered() {
+    public Cart() {
+        itemsOrdered.addListener((ListChangeListener<Media>) change -> {
+            updateTotalCost();
+        });
+    }
+
+    public ObservableList<Media> getItemsOrdered() {
         return itemsOrdered;
+    }
+
+    public float getTotalCost() {
+        return totalCost.get();
+    }
+
+    public FloatProperty totalCostProperty() {
+        return totalCost;
+    }
+
+    private void updateTotalCost() {
+        float cost = 0;
+
+        for (Media media : itemsOrdered) {
+            cost += media.getCost();
+        }
+        totalCost.set(cost);
     }
 
     public void addMedia(Media... medias) {
@@ -118,9 +147,5 @@ public class Cart {
 
     public void sortByCostTitle() {
         this.itemsOrdered.sort(Media.COMPARE_BY_COST_TITLE);
-    }
-
-    public void empty() {
-        this.itemsOrdered.clear();
     }
 }

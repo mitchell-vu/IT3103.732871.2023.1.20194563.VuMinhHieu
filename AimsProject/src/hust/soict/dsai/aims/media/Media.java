@@ -82,4 +82,16 @@ public class Media {
                 + " - " + this.getCategory()
                 + " - " + this.getCost() + "$";
     }
+
+    public boolean isMatch(String title) {
+        String[] words = title.split(" ");
+
+        for (String word : words) {
+            // Matching rules in Lab 02. Comparison is case-insensitive
+            if (!this.getTitle().toLowerCase().contains(word.toLowerCase()))
+                return false;
+        }
+
+        return true;
+    }
 }
